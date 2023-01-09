@@ -92,6 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059299867231271786}
+  - component: {fileID: -207183176367101678}
+  - component: {fileID: 697575168039073389}
   m_Layer: 0
   m_Name: MasterMind
   m_TagString: Untagged
@@ -131,6 +133,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-207183176367101678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720316770837094864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b4a5dc1f94f8841bed36d464f55f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &697575168039073389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720316770837094864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ad8d366ee01cd42b5ebc88aacd78a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1954178700033577089
 GameObject:
   m_ObjectHideFlags: 0
