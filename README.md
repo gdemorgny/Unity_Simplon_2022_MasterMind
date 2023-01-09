@@ -25,3 +25,4 @@ Fonctionnement final :
 - Il existera un système de difficulté, plus de couleurs possible par exemple ou plus de position dans une ligne.
 - Le nombre de coups maximum restera identique.
 
+## Notifications de commit ajouté au salon #corrections sur discord
