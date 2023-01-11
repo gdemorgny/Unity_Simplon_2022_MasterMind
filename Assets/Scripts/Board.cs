@@ -55,7 +55,16 @@ public class Board : MonoBehaviour
     public void CheckActualRow()
     {
         int[] answer = _rows[_actualLine].GetRowColors();
-        bool[] answerTested= new bool[answer.Length];
+        for (int i = 0; i < answer.Length; i++)
+        {
+            if (answer[i] == -1)
+            {
+                return;
+            }
+        }
+        bool[] answerGoodPlacesTested = new bool[answer.Length];
+        bool[] answerWrongPlaces = new bool[answer.Length];
+
         int goodAnswer = 0;
         int wrongplaces = 0;
         for (int i = 0;i < answer.Length;i++)
@@ -63,20 +72,20 @@ public class Board : MonoBehaviour
             if (answer[i] == _finalRow[i])
             {
                 goodAnswer++;
-                answerTested[i] = true;
+                answerGoodPlacesTested[i] = true;
             } 
         }
-        
         for (int i = 0;i < answer.Length; i++)
         {
-            if (!answerTested[i])
+            if (!answerGoodPlacesTested[i])
             {
                 for (int j = 0; j < answer.Length; j++)
                 {
-                    if (!answerTested[j] && answer[i] == _finalRow[j])
+                    if (!answerGoodPlacesTested[j] && !answerWrongPlaces[j] && answer[i] == _finalRow[j])
                     {
                         wrongplaces++;
-                        answerTested[j] = true;
+                        answerWrongPlaces[j] = true;
+                        break;
                     }
                 }
             }
@@ -84,14 +93,17 @@ public class Board : MonoBehaviour
         int[] result = new int[answer.Length];
         for (int i = 0; i < answer.Length; i++)
         {
-            if(i<goodAnswer)
+            if (i < goodAnswer)
             {
                 result[i] = 0;
-            }else if (i<wrongplaces + goodAnswer)
+            }
+            else if (i < (wrongplaces + goodAnswer))
             {
                 result[i] = 1;
-            } else { 
-                result[i] = 2; 
+            }
+            else
+            {
+                result[i] = 2;
             }
         }
         _rows[_actualLine].ApplyResult(result);
@@ -102,6 +114,7 @@ public class Board : MonoBehaviour
             OnWin?.Invoke();
             return;
         }
+        _actualLine++;
 
         if (_actualLine >= 12)
         {
@@ -113,9 +126,10 @@ public class Board : MonoBehaviour
 
         } else
         {
-            _actualLine++;
             ActivateNewLine();
         }
 
     }
+
+
 }
